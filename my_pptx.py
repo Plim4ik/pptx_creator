@@ -2,6 +2,7 @@ from pptx import Presentation
 from pptx.util import Pt
 from pptx.enum.text import PP_ALIGN
 from texts import slides_content
+from config import FONT_NAME, FONT_SIZE
 
 # Create a presentation object
 prs = Presentation()
@@ -22,15 +23,15 @@ def add_slide(prs, title, content):
     # Format title
     for paragraph in title_placeholder.text_frame.paragraphs:
         for run in paragraph.runs:
-            run.font.size = Pt(24)
-            run.font.name = 'Times New Roman'
+            run.font.size = Pt(FONT_SIZE)
+            run.font.name = FONT_NAME
 
     # Format content
     for paragraph in content_placeholder.text_frame.paragraphs:
         paragraph.alignment = PP_ALIGN.LEFT
         for run in paragraph.runs:
-            run.font.size = Pt(24)
-            run.font.name = 'Times New Roman'
+            run.font.size = Pt(FONT_SIZE)
+            run.font.name = FONT_NAME
 
 # Add slides to the presentation
 for title, content in slides_content:
